@@ -13,7 +13,7 @@ import com.facebook.react.bridge.ReactMethod;
 public class RNEncryptedStorageModule extends ReactContextBaseJavaModule {
 
     private static final String NATIVE_MODULE_NAME = "RNEncryptedStorage";
-    private static final String SHARED_PREFERENCES_FILENAME = "RN_ENCRYPTED_STORAGE_SHARED_PREF";
+    private static final String SHARED_PREFERENCES_FILENAME = "co.nelo.nelo.SecureLocalStorage";
 
     private SharedPreferences sharedPreferences;
 
@@ -21,7 +21,7 @@ public class RNEncryptedStorageModule extends ReactContextBaseJavaModule {
         super(context);
 
         try {
-            MasterKey key = new MasterKey.Builder(context)
+            MasterKey key = new MasterKey.Builder(context, MasterKey.DEFAULT_MASTER_KEY_ALIAS)
                     .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
                     .build();
 
